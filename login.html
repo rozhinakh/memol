@@ -1,49 +1,75 @@
 <html>
-
-<head>
+  <head>
     <titel><strong>Login</strong></titel>
     <link rel="stylesheet" href="./style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
+    <form id="signup" method="post">
+      <p>نام و نام خانوادگی</p>
 
-    <br />
-    <p>نام و نام خانوادگی</p>
+      <div id="message"></div>
 
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname" value="نام"><br>
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname" value="نام خانوادگی"><br><br>
+      <label for="fname">First name:</label><br />
+      <input
+        type="text"
+        id="fname"
+        name="fname"
+        value=""
+        placeholder="نام"
+      /><br />
+      <label for="lname">Last name:</label><br />
+      <input
+        type="text"
+        id="lname"
+        name="lname"
+        value=""
+        placeholder="نام خانوادگی"
+      /><br /><br />
 
-    <p>سن خود را انتخاب کنید:</p>
+      <p>سن خود را انتخاب کنید:</p>
 
-    <form>
-          <input type="radio" id="12" name="fav_language" value="12">
-          <label for="12">12</label><br>
-          <input type="radio" id="13" name="fav_language" value="13">
-          <label for="13">13</label><br>
-         <br>
-        <p>تاریخ تولد خود را به میلادی وارد کنید:</p>
-        <label for="birthday">تاریخ تولد:</label>
-        <input type="date" id="birthday" name="birthday">
-        <br><br><br><label for="email">ایمیل:</label>
-        <input type="email" id="email" name="email">
+      <input type="radio" id="age12" name="age" value="12" />
+      <label for="age12">12</label><br />
 
+      <input type="radio" id="age13" name="age" value="13" />
+      <label for="age13">13</label><br />
+
+      <br />
+
+      <p>تاریخ تولد خود را به میلادی وارد کنید:</p>
+      <label for="birthday">تاریخ تولد:</label>
+      <input type="date" id="birthday" name="birthday" />
+
+      <br /><br /><br /><label for="email">ایمیل:</label>
+      <input type="email" id="email" name="email" /><br />
+
+      <!-- <img src="123.jpg" class="logo" /><br /> -->
+
+      <input type="submit" />
+      <input type="reset" />
     </form>
-    <form>
-        <input type="reset">
 
-    </form>
-    <form action="/action_page.php">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <input type="submit">
+    <script>
+      const signupForm = document.getElementById("signup");
 
+      signupForm.onsubmit = function (event) {
+        event.preventDefault();
 
-        <input type="text" required>
-        <img src="123.jpg" class="logo" />
+        const fname = document.getElementById("fname");
+        const lname = document.getElementById("lname");
+        const email = document.getElementById("email");
 
-
-</body>
-
+        if (fname.value === "") {
+          alert("نام اجباری است");
+        } else if (lname.value === "") {
+          alert("نام خانوادگی اجباری است");
+        } else if (email.value === "") {
+          alert("ایمیل شما اجباری است");
+        } else {
+          alert("شما با موفقیت ثبت نام شدید");
+        }
+      };
+    </script>
+  </body>
 </html>
